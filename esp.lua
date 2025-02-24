@@ -420,3 +420,20 @@ do -- Initalize
         end);
     end;
 end;
+
+local function UpdateESP()
+    while wait(0.1) do
+        if not _G.ESP.Enabled then
+            HideESP() -- Function to disable ESP elements
+        else
+            for _, v in pairs(game:GetService("Players"):GetPlayers()) do
+                if v ~= game.Players.LocalPlayer then
+                    coroutine.wrap(ESP)(v) -- Reapply ESP if enabled
+                end
+            end
+        end
+    end
+end
+
+-- Start checking ESP state
+coroutine.wrap(UpdateESP)()
