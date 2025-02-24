@@ -1,3 +1,4 @@
+_G.ESP = _G.ESP or { Enabled = false } -- Ensure _G.ESP exists
 -- THIS ESP WAS NOT MADE BY ME IT IS OPEN SOURCE SO I WILL LEAVE IT UNOBFUSCATED!!! I DO NOT KNOW WHO THE ORIGINAL CREATOR IS OR I WOULD HAVE LINKED IT!!!
 
 local Workspace, RunService, Players, CoreGui, Lighting = cloneref(game:GetService("Workspace")), cloneref(game:GetService("RunService")), cloneref(game:GetService("Players")), game:GetService("CoreGui"), cloneref(game:GetService("Lighting"))
@@ -154,16 +155,16 @@ do -- Initalize
         local Distance = Functions:Create("TextLabel", {Parent = ScreenGui, Position = UDim2.new(0.5, 0, 0, 11), Size = UDim2.new(0, 100, 0, 20), AnchorPoint = Vector2.new(0.5, 0.5), BackgroundTransparency = 1, TextColor3 = Color3.fromRGB(255, 255, 255), Font = Enum.Font.Code, TextSize = ESP.FontSize, TextStrokeTransparency = 0, TextStrokeColor3 = Color3.fromRGB(0, 0, 0), RichText = true})
         local Weapon = Functions:Create("TextLabel", {Parent = ScreenGui, Position = UDim2.new(0.5, 0, 0, 31), Size = UDim2.new(0, 100, 0, 20), AnchorPoint = Vector2.new(0.5, 0.5), BackgroundTransparency = 1, TextColor3 = Color3.fromRGB(255, 255, 255), Font = Enum.Font.Code, TextSize = ESP.FontSize, TextStrokeTransparency = 0, TextStrokeColor3 = Color3.fromRGB(0, 0, 0), RichText = true})
         local Box = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = Color3.fromRGB(0, 0, 0), BackgroundTransparency = 0.75, BorderSizePixel = 0})
-        local Gradient1 = Functions:Create("UIGradient", {Parent = Box, Enabled = ESP.Drawing.Boxes.GradientFill, Color = ColorSequence.new{ColorSequenceKeypoint.new(0, ESP.Drawing.Boxes.GradientFillRGB1), ColorSequenceKeypoint.new(1, ESP.Drawing.Boxes.GradientFillRGB2)}})
-        local Outline = Functions:Create("UIStroke", {Parent = Box, Enabled = ESP.Drawing.Boxes.Gradient, Transparency = 0, Color = Color3.fromRGB(255, 255, 255), LineJoinMode = Enum.LineJoinMode.Miter})
-        local Gradient2 = Functions:Create("UIGradient", {Parent = Outline, Enabled = ESP.Drawing.Boxes.Gradient, Color = ColorSequence.new{ColorSequenceKeypoint.new(0, ESP.Drawing.Boxes.GradientRGB1), ColorSequenceKeypoint.new(1, ESP.Drawing.Boxes.GradientRGB2)}})
+        local Gradient1 = Functions:Create("UIGradient", {Parent = Box,  = ESP.Drawing.Boxes.GradientFill, Color = ColorSequence.new{ColorSequenceKeypoint.new(0, ESP.Drawing.Boxes.GradientFillRGB1), ColorSequenceKeypoint.new(1, ESP.Drawing.Boxes.GradientFillRGB2)}})
+        local Outline = Functions:Create("UIStroke", {Parent = Box,  = ESP.Drawing.Boxes.Gradient, Transparency = 0, Color = Color3.fromRGB(255, 255, 255), LineJoinMode = Enum.LineJoinMode.Miter})
+        local Gradient2 = Functions:Create("UIGradient", {Parent = Outline,  = ESP.Drawing.Boxes.Gradient, Color = ColorSequence.new{ColorSequenceKeypoint.new(0, ESP.Drawing.Boxes.GradientRGB1), ColorSequenceKeypoint.new(1, ESP.Drawing.Boxes.GradientRGB2)}})
         local Healthbar = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = Color3.fromRGB(255, 255, 255), BackgroundTransparency = 0})
         local BehindHealthbar = Functions:Create("Frame", {Parent = ScreenGui, ZIndex = -1, BackgroundColor3 = Color3.fromRGB(0, 0, 0), BackgroundTransparency = 0})
-        local HealthbarGradient = Functions:Create("UIGradient", {Parent = Healthbar, Enabled = ESP.Drawing.Healthbar.Gradient, Rotation = -90, Color = ColorSequence.new{ColorSequenceKeypoint.new(0, ESP.Drawing.Healthbar.GradientRGB1), ColorSequenceKeypoint.new(0.5, ESP.Drawing.Healthbar.GradientRGB2), ColorSequenceKeypoint.new(1, ESP.Drawing.Healthbar.GradientRGB3)}})
+        local HealthbarGradient = Functions:Create("UIGradient", {Parent = Healthbar,  = ESP.Drawing.Healthbar.Gradient, Rotation = -90, Color = ColorSequence.new{ColorSequenceKeypoint.new(0, ESP.Drawing.Healthbar.GradientRGB1), ColorSequenceKeypoint.new(0.5, ESP.Drawing.Healthbar.GradientRGB2), ColorSequenceKeypoint.new(1, ESP.Drawing.Healthbar.GradientRGB3)}})
         local HealthText = Functions:Create("TextLabel", {Parent = ScreenGui, Position = UDim2.new(0.5, 0, 0, 31), Size = UDim2.new(0, 100, 0, 20), AnchorPoint = Vector2.new(0.5, 0.5), BackgroundTransparency = 1, TextColor3 = Color3.fromRGB(255, 255, 255), Font = Enum.Font.Code, TextSize = ESP.FontSize, TextStrokeTransparency = 0, TextStrokeColor3 = Color3.fromRGB(0, 0, 0)})
         local Chams = Functions:Create("Highlight", {Parent = ScreenGui, FillTransparency = 1, OutlineTransparency = 0, OutlineColor = Color3.fromRGB(119, 120, 255), DepthMode = "AlwaysOnTop"})
         local WeaponIcon = Functions:Create("ImageLabel", {Parent = ScreenGui, BackgroundTransparency = 1, BorderColor3 = Color3.fromRGB(0, 0, 0), BorderSizePixel = 0, Size = UDim2.new(0, 40, 0, 40)})
-        local Gradient3 = Functions:Create("UIGradient", {Parent = WeaponIcon, Rotation = -90, Enabled = ESP.Drawing.Weapons.Gradient, Color = ColorSequence.new{ColorSequenceKeypoint.new(0, ESP.Drawing.Weapons.GradientRGB1), ColorSequenceKeypoint.new(1, ESP.Drawing.Weapons.GradientRGB2)}})
+        local Gradient3 = Functions:Create("UIGradient", {Parent = WeaponIcon, Rotation = -90,  = ESP.Drawing.Weapons.Gradient, Color = ColorSequence.new{ColorSequenceKeypoint.new(0, ESP.Drawing.Weapons.GradientRGB1), ColorSequenceKeypoint.new(1, ESP.Drawing.Weapons.GradientRGB2)}})
         local LeftTop = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = ESP.Drawing.Boxes.Corner.RGB, Position = UDim2.new(0, 0, 0, 0)})
         local LeftSide = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = ESP.Drawing.Boxes.Corner.RGB, Position = UDim2.new(0, 0, 0, 0)})
         local RightTop = Functions:Create("Frame", {Parent = ScreenGui, BackgroundColor3 = ESP.Drawing.Boxes.Corner.RGB, Position = UDim2.new(0, 0, 0, 0)})
@@ -196,7 +197,7 @@ do -- Initalize
                 BottomRightSide.Visible = false;
                 BottomRightDown.Visible = false;
                 Flag1.Visible = false;
-                Chams.Enabled = false;
+                Chams. = false;
                 Flag2.Visible = false;
                 if not plr then
                     ScreenGui:Destroy();
@@ -245,7 +246,7 @@ do -- Initalize
 
                             do -- Chams
                                 Chams.Adornee = plr.Character
-                                Chams.Enabled = ESP.Drawing.Chams.Enabled
+                                Chams. = ESP.Drawing.Chams.
                                 Chams.FillColor = ESP.Drawing.Chams.FillRGB
                                 Chams.OutlineColor = ESP.Drawing.Chams.OutlineRGB
                                 do -- Breathe
@@ -263,40 +264,40 @@ do -- Initalize
                             end;
 
                             do -- Corner Boxes
-                                LeftTop.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                LeftTop.Visible = ESP.Drawing.Boxes.Corner.
                                 LeftTop.Position = UDim2.new(0, Pos.X - w / 2, 0, Pos.Y - h / 2)
                                 LeftTop.Size = UDim2.new(0, w / 5, 0, 1)
                                 
-                                LeftSide.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                LeftSide.Visible = ESP.Drawing.Boxes.Corner.
                                 LeftSide.Position = UDim2.new(0, Pos.X - w / 2, 0, Pos.Y - h / 2)
                                 LeftSide.Size = UDim2.new(0, 1, 0, h / 5)
                                 
-                                BottomSide.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                BottomSide.Visible = ESP.Drawing.Boxes.Corner.
                                 BottomSide.Position = UDim2.new(0, Pos.X - w / 2, 0, Pos.Y + h / 2)
                                 BottomSide.Size = UDim2.new(0, 1, 0, h / 5)
                                 BottomSide.AnchorPoint = Vector2.new(0, 5)
                                 
-                                BottomDown.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                BottomDown.Visible = ESP.Drawing.Boxes.Corner.
                                 BottomDown.Position = UDim2.new(0, Pos.X - w / 2, 0, Pos.Y + h / 2)
                                 BottomDown.Size = UDim2.new(0, w / 5, 0, 1)
                                 BottomDown.AnchorPoint = Vector2.new(0, 1)
                                 
-                                RightTop.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                RightTop.Visible = ESP.Drawing.Boxes.Corner.
                                 RightTop.Position = UDim2.new(0, Pos.X + w / 2, 0, Pos.Y - h / 2)
                                 RightTop.Size = UDim2.new(0, w / 5, 0, 1)
                                 RightTop.AnchorPoint = Vector2.new(1, 0)
                                 
-                                RightSide.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                RightSide.Visible = ESP.Drawing.Boxes.Corner.
                                 RightSide.Position = UDim2.new(0, Pos.X + w / 2 - 1, 0, Pos.Y - h / 2)
                                 RightSide.Size = UDim2.new(0, 1, 0, h / 5)
                                 RightSide.AnchorPoint = Vector2.new(0, 0)
                                 
-                                BottomRightSide.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                BottomRightSide.Visible = ESP.Drawing.Boxes.Corner.
                                 BottomRightSide.Position = UDim2.new(0, Pos.X + w / 2, 0, Pos.Y + h / 2)
                                 BottomRightSide.Size = UDim2.new(0, 1, 0, h / 5)
                                 BottomRightSide.AnchorPoint = Vector2.new(1, 1)
                                 
-                                BottomRightDown.Visible = ESP.Drawing.Boxes.Corner.Enabled
+                                BottomRightDown.Visible = ESP.Drawing.Boxes.Corner.
                                 BottomRightDown.Position = UDim2.new(0, Pos.X + w / 2, 0, Pos.Y + h / 2)
                                 BottomRightDown.Size = UDim2.new(0, w / 5, 0, 1)
                                 BottomRightDown.AnchorPoint = Vector2.new(1, 1)                                                            
@@ -305,10 +306,10 @@ do -- Initalize
                             do -- Boxes
                                 Box.Position = UDim2.new(0, Pos.X - w / 2, 0, Pos.Y - h / 2)
                                 Box.Size = UDim2.new(0, w, 0, h)
-                                Box.Visible = ESP.Drawing.Boxes.Full.Enabled;
+                                Box.Visible = ESP.Drawing.Boxes.Full.;
 
                                 -- Gradient
-                                if ESP.Drawing.Boxes.Filled.Enabled then
+                                if ESP.Drawing.Boxes.Filled. then
                                     Box.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                                     if ESP.Drawing.Boxes.GradientFill then
                                         Box.BackgroundTransparency = ESP.Drawing.Boxes.Filled.Transparency;
